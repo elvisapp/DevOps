@@ -1,7 +1,7 @@
 {
-    "name": "seu-projeto",
+    "name": "devops_ci_cd",
     "version": "1.0.0",
-    "description": "Descrição do seu projeto",
+    "description": "Projeto de DevOps com CI/CD",
     "main": "index.js",
     "scripts": {
       "start": "node index.js",
