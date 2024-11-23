@@ -36,10 +36,15 @@ jobs:
     - name: Install Netlify CLI
       run: npm install -g netlify-cli
 
-    - name: Deploy to Netlify
+    - name: Link directory to existing site
+      run: netlify link --id 28a89ebf-ba3b-4f74-8dfa-c573317230b8
       env:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_AUTH_TOKEN: nfp_m6uXDQJJEDgoBWN4zhnZDtLdLkuEhj5haa00
+
+    - name: Deploy to Netlify
       run: netlify deploy --prod --dir=./build
+      env:
+        NETLIFY_AUTH_TOKEN: nfp_m6uXDQJJEDgoBWN4zhnZDtLdLkuEhj5haa00
 
     - name: Verify deployment
       run: echo "Deployment completed successfully!"
