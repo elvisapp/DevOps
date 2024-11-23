@@ -31,7 +31,7 @@ jobs:
       run: npm run build
 
     - name: Debug Build Directory
-      run: ls -la ./build
+      run: ls -la ./build || echo "Build directory not found"
 
     - name: Install Netlify CLI
       run: npm install -g netlify-cli
