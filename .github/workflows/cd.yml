@@ -13,41 +13,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Clonar el repositorio
     - name: Check out repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
 
-    # 2. Configurar caché para dependencias
     - name: Cache Node modules
-      uses: actions/cache@v4
+      uses: actions/cache@v3
       with:
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
 
-    # 3. Instalar dependencias
     - name: Install dependencies
       run: npm install
 
-    # 4. Construir el proyecto
     - name: Build project
       run: npm run build
 
-    # 5. Instalar Netlify CLI
+    - name: Debug Build Directory
+      run: ls -la ./build
+
     - name: Install Netlify CLI
       run: npm install -g netlify-cli
 
-    # 6. Adicionar passo de debug antes do deploy
-    - name: Debug before deploy
-      run: ls -la && pwd
-
-    # 7. Desplegar en Netlify
     - name: Deploy to Netlify
       env:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }} # Token configurado en GitHub Secrets.
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       run: netlify deploy --prod --dir=./build
 
-    # 8. Confirmar despliegue
     - name: Verify deployment
       run: echo "Deployment completed successfully!"

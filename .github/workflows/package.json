@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
       "start": "node index.js",
-      "build": "echo 'Rodando build...' && mkdir -p build && cp -R src/* build/"
+      "build": "mkdir -p build && cp -R src/* build/"
     },
     "author": "Seu Nome",
     "license": "MIT",
