@@ -1,0 +1,15 @@
+{
+    "name": "seu-projeto",
+    "version": "1.0.0",
+    "description": "Descrição do seu projeto",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js",
+      "build": "echo 'Rodando build...' && mkdir -p build && cp -R src/* build/"
+    },
+    "author": "Seu Nome",
+    "license": "MIT",
+    "dependencies": {},
+    "devDependencies": {}
+  }
+  
